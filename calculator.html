@@ -1,0 +1,107 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+<style>
+body{
+    padding: 0;
+  margin: 0;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh
+}
+input[type=text] {
+  width: 12%;
+  padding: 12px 5px;
+  margin: 0;
+  box-sizing: border-box;
+  font-weight: bold;
+  font-size: 24px;
+}
+select{
+  width: 15%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  font-weight: bold;
+  font-size: 24px;
+}
+option{
+  width: 15%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  font-weight: bold;
+}
+button{
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  font-weight: bold;
+  cursor: pointer;
+}
+label {
+  display:inline-block;
+}
+#konacanRezultat{
+    color: #484848;
+  font-size: 50px;
+  font-weight: bold;
+  font-family: monospace;
+  letter-spacing: 7px;
+  cursor: pointer;
+  transition: .5s linear;
+}
+#konacanRezultat:hover{
+  color: #fff;
+  text-shadow: 0 0 10px #fff,
+               0 0 20px #fff, 
+               0 0 40px #fff;
+}
+</style>
+</head>
+<body>
+    <form method="get" onsubmit="Calculator();return false;">
+    <input id="broj1" type="text">
+    <select id="operacija">
+        <option >+</option>
+        <option >-</option>
+        <option >*</option>
+        <option >/</option>
+    </select>
+    <input id="broj2" type="text">
+    <button type="submit">izracunaj</button>
+    <div ><h1 id="konacanRezultat"></h1></div>
+    </form>
+    
+    <script>
+        function Calculator(){ 
+            var broj1 = document.getElementById("broj1").value; 
+            var broj2 = document.getElementById("broj2").value; 
+            var operacija = document.getElementById("operacija").value; 
+            rezultat = '';    
+        switch (operacija) { 
+            case '-': 
+            var rezultat = parseInt(broj1) - parseInt(broj2);
+            break; 
+            case '+': 
+            var rezultat = parseInt(broj1) + parseInt(broj2);
+            break; 
+            case '*': 
+            var rezultat = parseInt(broj1) * parseInt(broj2);
+            break;
+            case '/': 
+            var rezultat = parseInt(broj1) / parseInt(broj2);
+            break;
+            default: 
+              var rezultat = 'nema rezultata'; 
+            break; 
+            }
+            document.getElementById('konacanRezultat').innerHTML = "Rezultat je: "+ rezultat;
+            console.log(typeof(rezultat));
+        }
+    </script>
+</body>
+</html>
